@@ -29,7 +29,7 @@ long long cal(long long a,long long b,long long c)
     long long x,y;//a * x + b * y = d
     long long d = extgcd<long long>(a,b,x,y);
     if(c % d != 0)return -1;
-    x = x / d * c; //转换为a * x + b * y = c 的解
+    x *= c / d; //转换为a * x + b * y = c 的解,注意顺序
     b /= d;//约去c后原来b就变为了b / gcd; c可以理解为到y上面
     if(b < 0)b = -b;
     long long ans = x % b;
